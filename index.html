@@ -5,98 +5,210 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
   <style>
+    /* Reset và base styles - dễ hiểu cho dev web */
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: #f7f9fc;
+      background-color: #f0f4f8; /* Light blue-ish bg cho giống portfolio mẫu hiện đại */
       color: #333;
       margin: 0;
       padding: 0;
+      line-height: 1.6;
     }
+
+    /* Container chính: Max width, center, padding */
     .container {
-      max-width: 850px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      max-width: 1000px; /* Tăng width để phân bổ rộng hơn */
+      margin: 0 auto;
+      padding: 20px;
     }
+
+    /* Header: Center, với gradient bg */
     .header {
       text-align: center;
       margin-bottom: 40px;
+      background: linear-gradient(135deg, #0073e6, #005bb5); /* Gradient xanh cho pro */
+      padding: 40px 20px;
+      border-radius: 15px;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,115,230,0.2);
     }
     .header img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
+      border: 4px solid white;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease; /* Hover effect */
+    }
+    .header img:hover {
+      transform: scale(1.05);
     }
     .header h1 {
-      margin: 20px 0 8px;
-      font-size: 2.4em;
+      margin: 10px 0 5px;
+      font-size: 2.5em;
     }
     .header p {
-      color: #666;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      opacity: 0.9;
     }
+
+    /* Section chung: Margin, title với icon */
     .section {
       margin: 40px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    .section:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
     .section h2 {
       color: #0073e6;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-      margin-bottom: 16px;
-      font-size: 1.8em;
+      border-bottom: 2px solid #e3f2fd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.9em;
+      display: flex;
+      align-items: center;
+    }
+    .section h2::before {
+      content: attr(data-icon); /* Dùng data-icon cho emoji */
+      margin-right: 10px;
+      font-size: 1.2em;
+    }
+
+    /* Experience: Flexbox cho cards, row trên desktop */
+    .experience {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
     .experience-item {
-      margin-bottom: 25px;
+      background: #fafbfc;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #0073e6;
+      transition: transform 0.3s ease;
+    }
+    .experience-item:hover {
+      transform: translateY(-2px);
     }
     .experience-item h3 {
-      margin-bottom: 4px;
+      margin: 0 0 5px;
       color: #222;
-      font-size: 1.2em;
+      font-size: 1.3em;
     }
     .experience-item span {
       color: #888;
       font-size: 0.95em;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .experience-item p {
+      margin: 10px 0;
+      font-weight: bold;
+      color: #0073e6;
     }
     .experience-item ul {
-      margin: 6px 0 0 20px;
+      margin: 10px 0 0 20px;
       color: #444;
     }
-    .skills ul, .activities ul {
-      list-style: disc inside;
-    }
-    .skills li {
+    .experience-item li {
       margin-bottom: 5px;
+    }
+
+    /* Activities & Skills: Grid 2 cột trên desktop */
+    .activities-skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2 cột đều nhau */
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .activities, .skills {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .activities ul, .skills ul {
+      list-style: disc inside;
+      padding-left: 20px;
+    }
+    .activities li, .skills li {
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    /* About: Giữ nguyên nhưng card-style */
+    .about {
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    /* Contact: Flex cho buttons */
+    .contact {
+      text-align: center;
     }
     .contact a {
       display: inline-block;
-      margin: 0 8px;
+      margin: 5px 10px;
       text-decoration: none;
       color: white;
       background-color: #0073e6;
-      padding: 10px 18px;
-      border-radius: 4px;
+      padding: 12px 20px;
+      border-radius: 25px; /* Rounded hơn cho modern */
+      transition: background 0.3s ease;
+    }
+    .contact a:hover {
+      background-color: #005bb5;
+    }
+
+    /* Responsive: Cho mobile, stack hết */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      .header {
+        padding: 30px 15px;
+      }
+      .header h1 {
+        font-size: 2em;
+      }
+      .experience {
+        gap: 15px;
+      }
+      .activities-skills {
+        grid-template-columns: 1fr; /* Stack dọc trên mobile */
+        gap: 20px;
+      }
+      .section {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="https://gravatar.com/binhchay1" alt="Avatar">
+      <img src="https://www.gravatar.com/avatar/02f53b0b4fea1ae721aae1c04285a5b2?s=140&d=identicon" alt="Avatar">
       <h1>Nguyen Thanh Binh</h1>
       <p>Backend Developer — Experienced in PHP, Laravel, Node.js, Redis, and CI/CD automation.</p>
     </div>
 
-    <div class="section about">
-      <h2>👋 About Me</h2>
+    <div class="section about" data-icon="👋">
+      <h2>About Me</h2>
       <p>I'm a web developer with several years of experience in backend development, focusing on building scalable applications and APIs. 
       I’m passionate about system design, automation, and performance optimization. I enjoy solving complex problems and learning emerging technologies.</p>
     </div>
 
-    <div class="section experience">
-      <h2>💼 Work Experience</h2>
+    <div class="section experience" data-icon="💼">
+      <h2>Work Experience</h2>
 
       <div class="experience-item">
         <h3>CMC Global | Developer</h3>
@@ -140,30 +252,33 @@
       </div>
     </div>
 
-    <div class="section activities">
-      <h2>🎯 Activities</h2>
-      <ul>
-        <li><strong>Sep 2015 – Feb 2015:</strong> Volunteer at FPT University — Supported poor children in Do Son, shared supplies and developed soft skills.</li>
-        <li><strong>Feb 2018:</strong> Workshop at FPT University — Discussed workplace problem-solving and soft skill development.</li>
-      </ul>
+    <!-- Wrap Activities & Skills vào một div grid để phân bổ 2 cột -->
+    <div class="activities-skills">
+      <div class="section activities" data-icon="🎯">
+        <h2>Activities</h2>
+        <ul>
+          <li><strong>Sep 2015 – Feb 2015:</strong> Volunteer at FPT University — Supported poor children in Do Son, shared supplies and developed soft skills.</li>
+          <li><strong>Feb 2018:</strong> Workshop at FPT University — Discussed workplace problem-solving and soft skill development.</li>
+        </ul>
+      </div>
+
+      <div class="section skills" data-icon="⚙️">
+        <h2>Additional Information</h2>
+        <ul>
+          <li>High responsibility and dedication to work.</li>
+          <li>Fast learner, adaptable to new environments and flexible schedules.</li>
+          <li>Experienced in requirement analysis, UI design, and system specification.</li>
+          <li>Good teamwork, communication, and presentation skills.</li>
+          <li>Proficient in searching and using media tools for development.</li>
+          <li>Technical skills: SQL, HTML, CSS, PHP, Python, Node.js, AngularJS, VueJS, Bootstrap.</li>
+          <li>Frameworks: Slim, Laravel (strong experience).</li>
+          <li>Familiar with English (reading, writing, listening at acceptable level).</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="section skills">
-      <h2>⚙️ Additional Information</h2>
-      <ul>
-        <li>High responsibility and dedication to work.</li>
-        <li>Fast learner, adaptable to new environments and flexible schedules.</li>
-        <li>Experienced in requirement analysis, UI design, and system specification.</li>
-        <li>Good teamwork, communication, and presentation skills.</li>
-        <li>Proficient in searching and using media tools for development.</li>
-        <li>Technical skills: SQL, HTML, CSS, PHP, Python, Node.js, AngularJS, VueJS, Bootstrap.</li>
-        <li>Frameworks: Slim, Laravel (strong experience).</li>
-        <li>Familiar with English (reading, writing, listening at acceptable level).</li>
-      </ul>
-    </div>
-
-    <div class="section contact">
-      <h2>📬 Contact</h2>
+    <div class="section contact" data-icon="📬">
+      <h2>Contact</h2>
       <a href="mailto:binhchay1@gmail.com">Email</a>
       <a href="https://github.com/binhchay1">GitHub</a>
       <a href="https://www.linkedin.com/in/thanh-b%C3%ACnh-nguy%E1%BB%85n-b40124219/">LinkedIn</a>
