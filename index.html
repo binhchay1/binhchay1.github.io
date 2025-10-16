@@ -4,32 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
+  <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/02f53b0b4fea1ae721aae1c04285a5b2?s=32&d=identicon" />
   <style>
-    /* Reset và base styles - dễ hiểu cho dev web */
     * {
       box-sizing: border-box;
     }
     body {
       font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: #f0f4f8; /* Light blue-ish bg cho giống portfolio mẫu hiện đại */
+      background-color: #f0f4f8; /* Light blue-ish bg */
       color: #333;
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
 
-    /* Container chính: Max width, center, padding */
     .container {
-      max-width: 1000px; /* Tăng width để phân bổ rộng hơn */
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Header: Center, với gradient bg */
     .header {
       text-align: center;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, #0073e6, #005bb5); /* Gradient xanh cho pro */
+      margin-bottom: 20px; /* Giảm margin để sections gần nhau hơn */
+      background: linear-gradient(135deg, #0073e6, #005bb5);
       padding: 40px 20px;
       border-radius: 15px;
       color: white;
@@ -42,7 +40,7 @@
       object-fit: cover;
       border: 4px solid white;
       margin-bottom: 15px;
-      transition: transform 0.3s ease; /* Hover effect */
+      transition: transform 0.3s ease;
     }
     .header img:hover {
       transform: scale(1.05);
@@ -56,9 +54,8 @@
       opacity: 0.9;
     }
 
-    /* Section chung: Margin, title với icon */
     .section {
-      margin: 40px 0;
+      margin: 20px 0; /* Giảm từ 40px xuống 20px để sections gần nhau */
       padding: 20px;
       background: white;
       border-radius: 10px;
@@ -77,13 +74,11 @@
       display: flex;
       align-items: center;
     }
-    .section h2::before {
-      content: attr(data-icon); /* Dùng data-icon cho emoji */
+    .section h2 span {
       margin-right: 10px;
       font-size: 1.2em;
     }
 
-    /* Experience: Flexbox cho cards, row trên desktop */
     .experience {
       display: flex;
       flex-direction: column;
@@ -123,12 +118,56 @@
       margin-bottom: 5px;
     }
 
-    /* Activities & Skills: Grid 2 cột trên desktop */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .project-item {
+      background: #fafbfc;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #0073e6;
+      transition: transform 0.3s ease;
+    }
+    .project-item:hover {
+      transform: translateY(-2px);
+    }
+    .project-item h3 {
+      margin: 0 0 5px;
+      color: #222;
+      font-size: 1.3em;
+    }
+    .project-item a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .project-item a:hover {
+      text-decoration: underline;
+    }
+    .project-item p {
+      margin: 10px 0;
+      color: #444;
+    }
+    .other-projects {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .other-projects a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .other-projects a:hover {
+      text-decoration: underline;
+    }
+
     .activities-skills {
       display: grid;
-      grid-template-columns: 1fr 1fr; /* 2 cột đều nhau */
-      gap: 30px;
-      margin: 40px 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
     }
     .activities, .skills {
       background: white;
@@ -145,13 +184,11 @@
       color: #444;
     }
 
-    /* About: Giữ nguyên nhưng card-style */
     .about {
       text-align: center;
       font-size: 1.1em;
     }
 
-    /* Contact: Flex cho buttons */
     .contact {
       text-align: center;
     }
@@ -162,14 +199,14 @@
       color: white;
       background-color: #0073e6;
       padding: 12px 20px;
-      border-radius: 25px; /* Rounded hơn cho modern */
+      border-radius: 25px;
       transition: background 0.3s ease;
     }
     .contact a:hover {
       background-color: #005bb5;
     }
 
-    /* Responsive: Cho mobile, stack hết */
+    /* Responsive: Stack dọc trên mobile */
     @media (max-width: 768px) {
       .container {
         padding: 10px;
@@ -180,12 +217,12 @@
       .header h1 {
         font-size: 2em;
       }
-      .experience {
+      .experience, .projects {
         gap: 15px;
       }
       .activities-skills {
-        grid-template-columns: 1fr; /* Stack dọc trên mobile */
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
       .section {
         padding: 15px;
@@ -201,15 +238,14 @@
       <p>Backend Developer — Experienced in PHP, Laravel, Node.js, Redis, and CI/CD automation.</p>
     </div>
 
-    <div class="section about" data-icon="👋">
-      <h2>About Me</h2>
+    <div class="section about">
+      <h2><span>👋</span>About Me</h2>
       <p>I'm a web developer with several years of experience in backend development, focusing on building scalable applications and APIs. 
       I’m passionate about system design, automation, and performance optimization. I enjoy solving complex problems and learning emerging technologies.</p>
     </div>
 
-    <div class="section experience" data-icon="💼">
-      <h2>Work Experience</h2>
-
+    <div class="section experience">
+      <h2><span>💼</span>Work Experience</h2>
       <div class="experience-item">
         <h3>CMC Global | Developer</h3>
         <span>Jul 2021 – Mar 2022</span>
@@ -227,7 +263,6 @@
           <li>Worked closely with a 7-member team to ensure performance and reliability.</li>
         </ul>
       </div>
-
       <div class="experience-item">
         <h3>VNEXT Company | Developer</h3>
         <span>Apr 2021 – Jul 2021</span>
@@ -239,7 +274,6 @@
           <li>Team size: 3</li>
         </ul>
       </div>
-
       <div class="experience-item">
         <h3>Diagnostic Imaging Company | Developer</h3>
         <span>Jun 2020 – Apr 2021</span>
@@ -252,18 +286,38 @@
       </div>
     </div>
 
-    <!-- Wrap Activities & Skills vào một div grid để phân bổ 2 cột -->
+    <div class="section projects">
+      <h2><span>🚀</span>Projects</h2>
+      <div class="project-item">
+        <h3>Doctreat</h3>
+        <a href="https://github.com/binhchay1/doctreat" target="_blank">View on GitHub</a>
+        <p>A comprehensive web platform for pet clinics, enabling appointment booking, service management, and e-commerce for pet products. Features include a Google Calendar-like interface and inventory tracking.</p>
+      </div>
+      <div class="project-item">
+        <h3>BusLive</h3>
+        <a href="https://github.com/binhchay1/buslive" target="_blank">View on GitHub</a>
+        <p>A web application for managing bus operations, allowing administrators to oversee vehicles and schedules, while customers can book tickets online.</p>
+      </div>
+      <div class="project-item">
+        <h3>Horoscope Lookup</h3>
+        <a href="https://github.com/binhchay1/horoscope-lookup" target="_blank">View on GitHub</a>
+        <p>A web app and API for generating horoscope charts (Tử Vi) based on academic astrology principles, providing detailed interpretations of celestial and terrestrial configurations.</p>
+      </div>
+      <div class="other-projects">
+        <p>Check out my <a href="https://github.com/binhchay1" target="_blank">GitHub profile</a> for more projects!</p>
+      </div>
+    </div>
+
     <div class="activities-skills">
-      <div class="section activities" data-icon="🎯">
-        <h2>Activities</h2>
+      <div class="section activities">
+        <h2><span>🎯</span>Activities</h2>
         <ul>
           <li><strong>Sep 2015 – Feb 2015:</strong> Volunteer at FPT University — Supported poor children in Do Son, shared supplies and developed soft skills.</li>
           <li><strong>Feb 2018:</strong> Workshop at FPT University — Discussed workplace problem-solving and soft skill development.</li>
         </ul>
       </div>
-
-      <div class="section skills" data-icon="⚙️">
-        <h2>Additional Information</h2>
+      <div class="section skills">
+        <h2><span>⚙️</span>Additional Information</h2>
         <ul>
           <li>High responsibility and dedication to work.</li>
           <li>Fast learner, adaptable to new environments and flexible schedules.</li>
@@ -277,8 +331,8 @@
       </div>
     </div>
 
-    <div class="section contact" data-icon="📬">
-      <h2>Contact</h2>
+    <div class="section contact">
+      <h2><span>📬</span>Contact</h2>
       <a href="mailto:binhchay1@gmail.com">Email</a>
       <a href="https://github.com/binhchay1">GitHub</a>
       <a href="https://www.linkedin.com/in/thanh-b%C3%ACnh-nguy%E1%BB%85n-b40124219/">LinkedIn</a>
