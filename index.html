@@ -6,226 +6,79 @@
   <title>Nguyen Thanh Binh - Portfolio</title>
   <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/02f53b0b4fea1ae721aae1c04285a5b2?s=32&d=identicon" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Roboto, Arial, sans-serif;
       background-color: #f0f4f8; 
       color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      margin: 0; padding: 0; line-height: 1.6;
     }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
     .header {
-      text-align: center;
-      margin-bottom: 20px; 
+      text-align: center; margin-bottom: 20px; 
       background: linear-gradient(135deg, #0073e6, #005bb5);
-      padding: 40px 20px;
-      border-radius: 15px;
-      color: white;
-      box-shadow: 0 4px 20px rgba(0,115,230,0.2);
+      padding: 40px 20px; border-radius: 15px;
+      color: white; box-shadow: 0 4px 20px rgba(0,115,230,0.2);
     }
     .header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
+      width: 140px; height: 140px; border-radius: 50%;
+      object-fit: cover; border: 4px solid white;
+      margin-bottom: 15px; transition: transform 0.3s ease;
     }
-    .header img:hover {
-      transform: scale(1.05);
-    }
-    .header h1 {
-      margin: 10px 0 5px;
-      font-size: 2.5em;
-    }
-    .header p {
-      font-size: 1.2em;
-      opacity: 0.9;
-    }
-
+    .header img:hover { transform: scale(1.05); }
+    .header h1 { margin: 10px 0 5px; font-size: 2.5em; }
+    .header p { font-size: 1.2em; opacity: 0.9; }
     .section {
-      margin: 20px 0; 
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin: 20px 0; padding: 20px; background: white;
+      border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s ease;
     }
-    .section:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
+    .section:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
     .section h2 {
-      color: #0073e6;
-      border-bottom: 2px solid #e3f2fd;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 1.9em;
-      display: flex;
-      align-items: center;
+      color: #0073e6; border-bottom: 2px solid #e3f2fd;
+      padding-bottom: 10px; margin-bottom: 20px;
+      font-size: 1.9em; display: flex; align-items: center;
     }
-    .section h2 span {
-      margin-right: 10px;
-      font-size: 1.2em;
+    .section h2 span { margin-right: 10px; font-size: 1.2em; }
+    .experience, .projects { display: flex; flex-direction: column; gap: 20px; }
+    .experience-item, .project-item {
+      background: #fafbfc; padding: 20px; border-radius: 8px;
+      border-left: 4px solid #0073e6; transition: transform 0.3s ease;
     }
-
-    .experience {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .experience-item {
-      background: #fafbfc;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid #0073e6;
-      transition: transform 0.3s ease;
-    }
-    .experience-item:hover {
-      transform: translateY(-2px);
-    }
-    .experience-item h3 {
-      margin: 0 0 5px;
-      color: #222;
-      font-size: 1.3em;
-    }
-    .experience-item span {
-      color: #888;
-      font-size: 0.95em;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .experience-item p {
-      margin: 10px 0;
-      font-weight: bold;
-      color: #0073e6;
-    }
-    .experience-item ul {
-      margin: 10px 0 0 20px;
-      color: #444;
-    }
-    .experience-item li {
-      margin-bottom: 5px;
-    }
-
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .project-item {
-      background: #fafbfc;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid #0073e6;
-      transition: transform 0.3s ease;
-    }
-    .project-item:hover {
-      transform: translateY(-2px);
-    }
-    .project-item h3 {
-      margin: 0 0 5px;
-      color: #222;
-      font-size: 1.3em;
-    }
-    .project-item a {
-      color: #0073e6;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .project-item a:hover {
-      text-decoration: underline;
-    }
-    .project-item p {
-      margin: 10px 0;
-      color: #444;
-    }
-    .other-projects {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .other-projects a {
-      color: #0073e6;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .other-projects a:hover {
-      text-decoration: underline;
-    }
-
-    .activities-skills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin: 20px 0;
-    }
+    .experience-item:hover, .project-item:hover { transform: translateY(-2px); }
+    .experience-item h3, .project-item h3 { margin: 0 0 5px; color: #222; font-size: 1.3em; }
+    .experience-item span { color: #888; font-size: 0.95em; display: block; margin-bottom: 10px; }
+    .experience-item p { margin: 10px 0; font-weight: bold; color: #0073e6; }
+    .experience-item ul { margin: 10px 0 0 20px; color: #444; }
+    .experience-item li { margin-bottom: 5px; }
+    .project-item a { color: #0073e6; text-decoration: none; font-weight: bold; }
+    .project-item a:hover { text-decoration: underline; }
+    .project-item p { margin: 10px 0; color: #444; }
+    .other-projects { margin-top: 20px; text-align: center; }
+    .other-projects a { color: #0073e6; text-decoration: none; font-weight: bold; }
+    .other-projects a:hover { text-decoration: underline; }
+    .activities-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
     .activities, .skills {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
+      background: white; padding: 20px; border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    .activities ul, .skills ul {
-      list-style: disc inside;
-      padding-left: 20px;
-    }
-    .activities li, .skills li {
-      margin-bottom: 8px;
-      color: #444;
-    }
-
-    .about {
-      text-align: center;
-      font-size: 1.1em;
-    }
-
-    .contact {
-      text-align: center;
-    }
+    .activities ul, .skills ul { list-style: disc inside; padding-left: 20px; }
+    .activities li, .skills li { margin-bottom: 8px; color: #444; }
+    .about { text-align: center; font-size: 1.1em; }
+    .contact { text-align: center; }
     .contact a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: white;
-      background-color: #0073e6;
-      padding: 12px 20px;
-      border-radius: 25px;
-      transition: background 0.3s ease;
+      display: inline-block; margin: 5px 10px; text-decoration: none;
+      color: white; background-color: #0073e6; padding: 12px 20px;
+      border-radius: 25px; transition: background 0.3s ease;
     }
-    .contact a:hover {
-      background-color: #005bb5;
-    }
-
+    .contact a:hover { background-color: #005bb5; }
     @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-      .header {
-        padding: 30px 15px;
-      }
-      .header h1 {
-        font-size: 2em;
-      }
-      .experience, .projects {
-        gap: 15px;
-      }
-      .activities-skills {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-      .section {
-        padding: 15px;
-      }
+      .container { padding: 10px; }
+      .header { padding: 30px 15px; }
+      .header h1 { font-size: 2em; }
+      .experience, .projects { gap: 15px; }
+      .activities-skills { grid-template-columns: 1fr; gap: 15px; }
+      .section { padding: 15px; }
     }
   </style>
 </head>
@@ -233,88 +86,88 @@
   <div class="container">
     <div class="header">
       <img src="https://www.gravatar.com/avatar/02f53b0b4fea1ae721aae1c04285a5b2?s=140&d=identicon" alt="Avatar">
-      <h1>NGUYỄN THANH BÌNH [cite: 1]</h1>
-      <p>Technical Lead / Developer [cite: 2, 22] — Experienced in PHP (Laravel), JavaScript (Next.js, Node.js), and Cloud Infrastructure[cite: 24, 25].</p>
+      <h1>NGUYỄN THANH BÌNH<span style="display:none;">[cite: 1]</span></h1>
+      <p>Technical Lead / Developer<span style="display:none;">[cite: 2]</span> — Experienced in PHP (Laravel)<span style="display:none;">[cite: 10]</span>, JavaScript (Next.js, Node.js)<span style="display:none;">[cite: 16, 17]</span>, and Cloud Infrastructure.<span style="display:none;">[cite: 43]</span></p>
     </div>
 
     <div class="section about">
-      <h2><span>👋</span>About Me</h2>
-      <p>I'm a software engineer who loves turning ideas into reliable and practical systems. [cite: 21] Over the past few years, my journey has grown from a hands-on full-stack developer to a technical lead. [cite: 22] I've had the opportunity to work across various domains—from healthcare platforms and secure payment gateways for the Japanese market to government-style news portals and global telecom networks. [cite: 23] Technically, I spend most of my time working with PHP (especially Laravel) and the JavaScript ecosystem (Next.js, Node.js). [cite: 24] I enjoy being involved in the whole process: planning the cloud infrastructure, setting up API gateways, writing clean backend code, and mentoring my teammates to keep Agile workflows running smoothly. [cite: 25, 28]</p>
+      <h2><span>👋</span>About Me<span style="display:none;">[cite: 20]</span></h2>
+      <p>I'm a software engineer who loves turning ideas into reliable and practical systems.<span style="display:none;">[cite: 21]</span> Over the past few years, my journey has grown from a hands-on full-stack developer to a technical lead.<span style="display:none;">[cite: 22]</span> I've had the opportunity to work across various domains—from healthcare platforms and secure payment gateways for the Japanese market to government-style news portals and global telecom networks.<span style="display:none;">[cite: 23]</span> Technically, I spend most of my time working with PHP (especially Laravel) and the JavaScript ecosystem (Next.js, Node.js).<span style="display:none;">[cite: 24]</span> I enjoy being involved in the whole process: planning the cloud infrastructure, setting up API gateways, or simply writing clean backend code.<span style="display:none;">[cite: 25]</span> I'm just as comfortable building a project from scratch as I am jumping into the middle of an existing one to help smooth things out.<span style="display:none;">[cite: 26]</span> Recently, as a Technical Lead managing a team of 7, I've realized that building good software is also about supporting the people behind it.<span style="display:none;">[cite: 27]</span> I really enjoy mentoring my teammates, keeping our Agile workflows running smoothly, and making sure we deliver high-quality work, even when the deadlines are tight.<span style="display:none;">[cite: 28]</span> I'm always eager to learn, adapt to different environments, and take on new challenges.<span style="display:none;">[cite: 29]</span></p>
     </div>
 
     <div class="section experience">
-      <h2><span>💼</span>Work Experience [cite: 34]</h2>
+      <h2><span>💼</span>Work Experience<span style="display:none;">[cite: 34]</span></h2>
       
       <div class="experience-item">
-        <h3>MODOBOM | Manager [cite: 36]</h3>
-        <span>Jul 2022 – Nov 2025 [cite: 35]</span>
-        <p><strong>Project 1: Telecom Subscription Network</strong> [cite: 37]</p>
+        <h3>MODOBOM | Manager<span style="display:none;">[cite: 36]</span></h3>
+        <span>Jul 2022 – Nov 2025<span style="display:none;">[cite: 35]</span></span>
+        <p><strong>Project 1: Telecom Subscription Network<span style="display:none;">[cite: 37]</span></strong></p>
         <ul>
-          <li>A global network for telecommunications subscription registration across European and Asian markets. [cite: 38]</li>
-          <li>Built the core platform utilizing Laravel and Next.js to handle cross-regional user registrations securely. [cite: 39]</li>
-          <li>Managed and mentored a 7-member team, driving the development lifecycle using Agile methodologies. [cite: 40]</li>
+          <li>A global network for telecommunications subscription registration across European and Asian markets.<span style="display:none;">[cite: 38]</span></li>
+          <li>Built the core platform utilizing Laravel and Next.js to handle cross-regional user registrations securely.<span style="display:none;">[cite: 39]</span></li>
+          <li>Managed and mentored a 7-member team, driving the development lifecycle using Agile methodologies.<span style="display:none;">[cite: 40]</span></li>
         </ul>
-        <p><strong>Project 2: Internal CMS & Cloud Infrastructure</strong> [cite: 41]</p>
+        <p><strong>Project 2: Internal CMS & Cloud Infrastructure<span style="display:none;">[cite: 41]</span></strong></p>
         <ul>
-          <li>Architected and designed the company's cloud infrastructure, operational workflows, and internal services from the ground up. [cite: 43]</li>
-          <li>Developed the comprehensive internal CMS using Laravel and Next.js, and engineered a robust Node.js API Gateway. [cite: 44]</li>
+          <li>Architected and designed the company's cloud infrastructure, operational workflows, and internal services from the ground up.<span style="display:none;">[cite: 43]</span></li>
+          <li>Developed the comprehensive internal CMS using Laravel and Next.js, and engineered a robust Node.js API Gateway.<span style="display:none;">[cite: 44]</span></li>
         </ul>
-        <p><strong>Project 3: HTML5 Game Portal</strong> [cite: 45]</p>
+        <p><strong>Project 3: HTML5 Game Portal<span style="display:none;">[cite: 45]</span></strong></p>
         <ul>
-          <li>Built a high-traffic HTML5 gaming platform utilizing custom WordPress development, tailoring the codebase to meet complex business logic. [cite: 46, 47]</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <h3>CMC GLOBAL | Developer [cite: 49]</h3>
-        <span>Jul 2021 – Mar 2022 [cite: 48]</span>
-        <p><strong>Project 1: Government-Style News Portal (Drupal)</strong> [cite: 50]</p>
-        <ul>
-          <li>Architected and built the entire large-scale domestic news portal completely from scratch utilizing 100% Drupal (latest version). [cite: 51, 59]</li>
-          <li>Designed and implemented a structured model for application management, ensuring high performance and scalability. [cite: 60]</li>
-        </ul>
-        <p><strong>Project 2: Mase & Wrapper API (Payment Gateway)</strong> [cite: 62]</p>
-        <ul>
-          <li>Acted as a technical mentor for a 7-member team, guiding them through the development of a secure third-party payment portal for Japanese clients. [cite: 63, 64]</li>
-          <li>Developed robust core functionalities utilizing Webhooks, APIs, and Redis to ensure seamless, secure transaction processing. [cite: 65]</li>
+          <li>Built a high-traffic HTML5 gaming platform utilizing custom WordPress development, tailoring the codebase to meet complex business logic.<span style="display:none;">[cite: 47]</span></li>
         </ul>
       </div>
 
       <div class="experience-item">
-        <h3>VNEXT COMPANY | Backend Developer [cite: 71]</h3>
-        <span>Apr 2021 – Jul 2021 [cite: 70]</span>
-        <p><strong>Project: Care-wing</strong> [cite: 72]</p>
+        <h3>CMC GLOBAL | Developer<span style="display:none;">[cite: 49]</span></h3>
+        <span>Jul 2021 – Mar 2022<span style="display:none;">[cite: 48]</span></span>
+        <p><strong>Project 1: Government-Style News Portal (Drupal)<span style="display:none;">[cite: 50]</span></strong></p>
         <ul>
-          <li>Handled the core back-end development using PHP (Symfony) for a comprehensive management system for elderly care centers in Japan. [cite: 73, 74]</li>
-          <li>Analyzed legacy codebases to identify and resolve bugs, ensuring the stability of the application. [cite: 75]</li>
-          <li>Worked within an Agile 5-member team and engaged in direct technical exchanges with Japanese clients under high-pressure environments. [cite: 76, 77, 78]</li>
+          <li>Architected and built the entire large-scale domestic news portal completely from scratch utilizing 100% Drupal (latest version).<span style="display:none;">[cite: 59]</span></li>
+          <li>Designed and implemented a structured model for application management, ensuring high performance and scalability.<span style="display:none;">[cite: 60]</span></li>
+        </ul>
+        <p><strong>Project 2: Mase & Wrapper API (Payment Gateway)<span style="display:none;">[cite: 62]</span></strong></p>
+        <ul>
+          <li>Acted as a technical mentor for a 7-member team, guiding them through the development of a secure third-party payment portal for Japanese clients.<span style="display:none;">[cite: 64]</span></li>
+          <li>Developed robust core functionalities utilizing Webhooks, APIs, and Redis to ensure seamless, secure transaction processing.<span style="display:none;">[cite: 65]</span></li>
         </ul>
       </div>
 
       <div class="experience-item">
-        <h3>DIAGNOSTIC IMAGING COMPANY | Web Developer [cite: 80]</h3>
-        <span>Jun 2020 – Apr 2021 [cite: 79]</span>
-        <p><strong>Project 1: Diagnostic Imaging System & PACS</strong> [cite: 81, 86]</p>
+        <h3>VNEXT COMPANY | Backend Developer<span style="display:none;">[cite: 71]</span></h3>
+        <span>Apr 2021 – Jul 2021<span style="display:none;">[cite: 70]</span></span>
+        <p><strong>Project: Care-wing<span style="display:none;">[cite: 72]</span></strong></p>
         <ul>
-          <li>Developed and optimized features for a core medical imaging platform using Slim Framework (PHP) and AngularJS. [cite: 82, 83]</li>
-          <li>Successfully integrated the web application with existing Hospital Information Systems (HIS) and tailored custom workflows. [cite: 85]</li>
-          <li>Contributed to the development of a highly confidential PACS product, rapidly acquiring specialized knowledge in healthcare technology standards within a 10-member team. [cite: 88, 89, 90]</li>
+          <li>Handled the core back-end development using PHP (Symfony) for a comprehensive management system for elderly care centers in Japan.<span style="display:none;">[cite: 73, 74]</span></li>
+          <li>Analyzed legacy codebases to identify and resolve bugs, ensuring the stability of the application.<span style="display:none;">[cite: 75]</span></li>
+          <li>Worked within an Agile 5-member team and engaged in direct technical exchanges with Japanese clients under high-pressure environments.<span style="display:none;">[cite: 76, 77]</span></li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <h3>DIAGNOSTIC IMAGING COMPANY | Web Developer<span style="display:none;">[cite: 80]</span></h3>
+        <span>Jun 2020 – Apr 2021<span style="display:none;">[cite: 79]</span></span>
+        <p><strong>Project 1: Diagnostic Imaging System & PACS<span style="display:none;">[cite: 81, 87]</span></strong></p>
+        <ul>
+          <li>Developed and optimized features for a core medical imaging platform using Slim Framework (PHP) and AngularJS.<span style="display:none;">[cite: 83]</span></li>
+          <li>Successfully integrated the web application with existing Hospital Information Systems (HIS) and tailored custom workflows.<span style="display:none;">[cite: 85]</span></li>
+          <li>Contributed to the development of a highly confidential PACS product, rapidly acquiring specialized knowledge in healthcare technology standards within a 10-member team.<span style="display:none;">[cite: 88, 89, 90]</span></li>
         </ul>
       </div>
     </div>
 
     <div class="section experience">
-      <h2><span>🎓</span>Education & Certifications [cite: 30, 105]</h2>
+      <h2><span>🎓</span>Education & Certifications<span style="display:none;">[cite: 30, 105]</span></h2>
       <div class="experience-item">
-        <h3>FPT UNIVERSITY | Graduate [cite: 32]</h3>
-        <span>Sep 2013 – Sep 2019 [cite: 31]</span>
-        <p><strong>Software Engineer - Ecommerce</strong> [cite: 33]</p>
+        <h3>FPT UNIVERSITY | Graduate<span style="display:none;">[cite: 32]</span></h3>
+        <span>Sep 2013 – Sep 2019<span style="display:none;">[cite: 31]</span></span>
+        <p><strong>Software Engineer - Ecommerce<span style="display:none;">[cite: 33]</span></strong></p>
       </div>
       <div class="experience-item">
-        <h3>Certifications [cite: 105]</h3>
+        <h3>Certifications<span style="display:none;">[cite: 105]</span></h3>
         <ul>
-          <li><strong>Google UX Design</strong> - 08/2025 [cite: 106, 107]</li>
-          <li><strong>Microsoft UX Design</strong> - 08/2025 [cite: 108, 109]</li>
+          <li><strong>Google UX Design</strong> - 08/2025<span style="display:none;">[cite: 106, 107]</span></li>
+          <li><strong>Microsoft UX Design</strong> - 08/2025<span style="display:none;">[cite: 108, 109]</span></li>
         </ul>
       </div>
     </div>
@@ -343,29 +196,29 @@
 
     <div class="activities-skills">
       <div class="section activities">
-        <h2><span>🎯</span>Activities [cite: 91]</h2>
+        <h2><span>🎯</span>Activities<span style="display:none;">[cite: 91]</span></h2>
         <ul>
-          <li><strong>Volunteer Activities of FPT University (2015):</strong> Volunteer activities to Do Son. Exchanged and developed soft skills for poor children, shared money and personal belongings. [cite: 93, 94, 95]</li>
-          <li><strong>Workshop on Life of FPT University (Feb 2018):</strong> Workshop on how to handle situations at work, sharing soft skills, living capital, and issues to be solved in society. [cite: 96, 97, 98, 99]</li>
+          <li><strong>Volunteer Activities of FPT University (2015):</strong> Volunteer activities to Do Son.<span style="display:none;">[cite: 92, 93]</span> Exchanged and developed soft skills for poor children, shared money and personal belongings.<span style="display:none;">[cite: 94, 95]</span></li>
+          <li><strong>Workshop on Life of FPT University (Feb 2018):</strong> Workshop on how to handle situations at work, sharing soft skills, living capital, and issues to be solved in society.<span style="display:none;">[cite: 96, 97, 98, 99]</span></li>
         </ul>
       </div>
       <div class="section skills">
-        <h2><span>⚙️</span>Skills & Additional Info [cite: 9, 100]</h2>
+        <h2><span>⚙️</span>Skills & Additional Info<span style="display:none;">[cite: 100]</span></h2>
         <ul>
-          <li><strong>Core Stack:</strong> PHP (Laravel, Slim Framework), JavaScript (Node.js, VueJS, AngularJS, Next.js), Python. [cite: 16, 17, 101]</li>
-          <li><strong>Databases & Infrastructure:</strong> MySQL, Postgresql, MongoDB, SQL, Linux, CI/CD, Docker. [cite: 11, 12, 13, 15, 19, 55, 101]</li>
-          <li><strong>Engineering Skills:</strong> System Architecture Design, API & Webhook Integration, Unit Testing, Requirement Analysis, UI/UX Implementation. [cite: 14, 18, 52, 53, 102]</li>
-          <li><strong>Languages:</strong> English (Proficient in comprehending technical documentation, intermediate conversational skills for team collaboration). [cite: 57, 104]</li>
-          <li><strong>Core Competencies:</strong> Strong sense of ownership, highly adaptable to fast-paced environments, effective cross-functional teamwork, and technical problem-solving. [cite: 103]</li>
+          <li><strong>Core Stack:</strong> PHP (Laravel, Slim Framework), JavaScript (Node.js, VueJS, AngularJS), Python.<span style="display:none;">[cite: 101]</span></li>
+          <li><strong>Databases & Infrastructure:</strong> MySQL, Postgresql, MongoDB, SQL, Linux, CI/CD, Docker.<span style="display:none;">[cite: 11, 12, 13, 15, 19, 55]</span></li>
+          <li><strong>Engineering Skills:</strong> System Architecture Design, API & Webhook Integration, Unit Testing, Requirement Analysis, UI/UX Implementation.<span style="display:none;">[cite: 14, 18, 52, 53, 102]</span></li>
+          <li><strong>Languages:</strong> English (Proficient in comprehending technical documentation, intermediate conversational skills for team collaboration).<span style="display:none;">[cite: 104]</span></li>
+          <li><strong>Core Competencies:</strong> Strong sense of ownership, highly adaptable to fast-paced environments, effective cross-functional teamwork, and technical problem-solving.<span style="display:none;">[cite: 103]</span></li>
         </ul>
       </div>
     </div>
 
     <div class="section contact">
       <h2><span>📬</span>Contact</h2>
-      <a href="mailto:binhchay1@gmail.com">Email [cite: 6]</a>
+      <a href="mailto:binhchay1@gmail.com">Email<span style="display:none;">[cite: 6]</span></a>
       <a href="https://github.com/binhchay1">GitHub</a>
-      <a href="https://www.linkedin.com/in/thanh-b%C3%ACnh-nguy%E1%BB%85n-b40124219/">LinkedIn [cite: 8]</a>
+      <a href="https://www.linkedin.com/in/thanh-b%C3%ACnh-nguy%E1%BB%85n-b40124219/">LinkedIn<span style="display:none;">[cite: 8]</span></a>
     </div>
   </div>
 </body>
